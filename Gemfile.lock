@@ -1,8 +1,8 @@
 PATH
   remote: .
   specs:
-    crushinator_helpers (0.0.1)
-      rails (~> 4.1.0)
+    crushinator_helpers (0.0.2)
+      rails (~> 4)
 
 GEM
   remote: https://rubygems.org/
