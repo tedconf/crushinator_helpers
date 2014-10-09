@@ -22,4 +22,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rspec-rails"
   s.add_development_dependency "guard-rspec"
   s.add_development_dependency "ruby_gntp"
+  s.add_development_dependency "ci_reporter_rspec"
+  s.add_development_dependency "thor"
 end
