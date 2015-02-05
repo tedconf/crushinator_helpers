@@ -17,7 +17,7 @@ set -e
 ruby_version='2.1.2'
 ruby_gemset='crushinator_helpers'
 
-rvm use ${ruby_version}@${ruby_gemset}
+rvm use ${ruby_version}@${ruby_gemset} --create
 
 # Print all commands after expansion.  Note that you can put this earlier
 # in the script, but rvm prints out a wall-o-text.
