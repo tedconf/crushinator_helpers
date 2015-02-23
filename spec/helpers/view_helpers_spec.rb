@@ -4,9 +4,9 @@ RSpec.describe CrushinatorHelpers::ViewHelpers, type: :helper do
 
   describe "crushinate" do
 
-    let(:url) { "http://img.tedcdn.com"}
-    let(:secure_url) { "https://img-ssl.tedcdn.com"}
-    let(:path) { "/images/playlists/are_we_alone_in_the_universe.jpg"}
+    let(:url)               { "http://img.tedcdn.com" }
+    let(:secure_url)        { "https://img-ssl.tedcdn.com" }
+    let(:path)              { "/images/playlists/are_we_alone_in_the_universe.jpg" }
 
     describe "https requests" do
 
@@ -80,6 +80,16 @@ RSpec.describe CrushinatorHelpers::ViewHelpers, type: :helper do
       ).to eq(
         "#{url}/r/images.ted.com#{path}?chicks=free&money=nothing"
       )
+    end
+
+    %w(my-branch.tedlive.ted.com).each do |unproxied|
+      it "should not 'crush' images for non-whitelisted hosts #{unproxied}" do
+        expect(helper.crushinate \
+          "http://#{unproxied}#{path}"
+        ).to eq(
+          "http://#{unproxied}#{path}"
+        )
+      end
     end
 
   end

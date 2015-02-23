@@ -10,7 +10,7 @@ module CrushinatorHelpers
         url = "#{match_data[1]}//#{match_data[2]}"
       end
 
-      if url.match(/(tedcdn|(images|storage|tedlive|tedlive-staging)\.ted|s3\.amazonaws)\.com/)
+      if url.match(/https?:\/\/(assets.tedcdn|(images|storage|tedlive|tedlive-staging)\.ted|s3\.amazonaws)\.com/)
         ssl_protocol_suffix = request.ssl? ? 's' : ''
         ssl_subdomain = request.ssl? ? 'img-ssl' : 'img'
         url = url.gsub(/.*\/\//, '')
