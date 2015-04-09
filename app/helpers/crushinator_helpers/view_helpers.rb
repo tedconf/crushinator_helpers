@@ -19,10 +19,8 @@ module CrushinatorHelpers
       end
 
       if url.match(/(tedcdn|(images|storage|tedlive|tedlive-staging)\.ted|(s3|s3-us-west-2)\.amazonaws)\.com/)
-        ssl_protocol_suffix = request.ssl? ? 's' : ''
-        #ssl_subdomain = request.ssl? ? 'img-ssl' : 'img'
         url = url.gsub(/.*\/\//, '')
-        "http#{ssl_protocol_suffix}://tedcdnpi-a.akamaihd.net/r/#{url}?#{options.to_query}"
+        "https://tedcdnpi-a.akamaihd.net/r/#{url}?#{options.to_query}"
       else
         url
       end
