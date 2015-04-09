@@ -11,7 +11,7 @@ module CrushinatorHelpers
         url = "#{match_data[1]}//#{match_data[2]}"
       end
 
-      # This is for possible new hardcoded Akami url's. To keep from double crushing
+      # This is for possible new hardcoded Akamai url's. To keep from double crushing
       if url.match(/tedcdnpi-a.akamaihd.net\/r\//)
         match_data = /(.+)?\/\/img(?:-ssl)?\.tedcdn\.com\/r\/([^?]+)\??(.*)/.match(url)
         options = Rack::Utils.parse_nested_query(match_data[3]).symbolize_keys.merge(options.symbolize_keys)
