@@ -8,6 +8,9 @@ RSpec.describe CrushinatorHelpers::ViewHelpers, type: :helper do
     let(:akamai_url) { "https://tedcdnpi-a.akamaihd.net"}
 
     let(:path) { "/images/playlists/are_we_alone_in_the_universe.jpg"}
+    let(:image_path) { "tedcdnpe-a.akamaihd.net/images/ted/d3b8fd408c1f2576d86a6d781da0dfd768d0cda4_240x180.jpg"}
+    let(:asset_path) { "tedcdnpf-a.akamaihd.net/images/playlists/talks_for_foodies_268x268.jpg"}
+
 
     describe "https requests" do
 
@@ -88,6 +91,22 @@ RSpec.describe CrushinatorHelpers::ViewHelpers, type: :helper do
         "http://images.ted.com#{path}", { money: 'nothing', chicks: 'free' }
       ).to eq(
         "#{akamai_url}/r/images.ted.com#{path}?chicks=free&money=nothing"
+      )
+    end
+
+    it "should properly crushinate images on akamai image url" do
+      expect(helper.crushinate \
+        "http://#{image_path}", { money: 'nothing', chicks: 'free' }
+      ).to eq(
+        "#{akamai_url}/r/#{image_path}?chicks=free&money=nothing"
+      )
+    end
+
+    it "should properly crushinate images on akamai asset url" do
+      expect(helper.crushinate \
+        "http://#{asset_path}", { money: 'nothing', chicks: 'free' }
+      ).to eq(
+        "#{akamai_url}/r/#{asset_path}?chicks=free&money=nothing"
       )
     end
 
