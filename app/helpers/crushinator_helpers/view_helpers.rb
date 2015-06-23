@@ -18,7 +18,7 @@ module CrushinatorHelpers
         url = "#{match_data[1]}//#{match_data[2]}"
       end
 
-      if url.match(/(tedcdn|(images|storage|tedlive|tedlive-staging)\.ted|(s3|s3-us-west-2)\.amazonaws)\.com/)
+      if url.match(/(tedcdn|(images|storage|tedlive|tedlive-staging|tedcdnp(e|f)-a)\.ted|(s3|s3-us-west-2)\.amazonaws|\.akamaihd)\.(com|net)/)
         url = url.gsub(/.*\/\//, '')
         "https://tedcdnpi-a.akamaihd.net/r/#{url}?#{options.to_query}"
       else
