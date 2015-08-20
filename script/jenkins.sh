@@ -14,7 +14,7 @@ type rvm | head -1
 set -e
 
 # Use our gemset (create it if it doesn't already exist)
-ruby_version='2.1.2'
+ruby_version='2.1.6'
 ruby_gemset='crushinator_helpers'
 
 rvm use ${ruby_version}@${ruby_gemset} --create
