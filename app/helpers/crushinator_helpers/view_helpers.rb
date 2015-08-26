@@ -2,6 +2,11 @@ module CrushinatorHelpers
   module ViewHelpers
 
     def crushinate(url, options={})
+      # Smooth over superfluous slashes in a URL
+      url = url.gsub(/([^:])\/\/+/) do
+        "#{$1}/"
+      end
+
       url = asset_path(url, digest: false, protocol: :request) if url
 
       # This is for old possibly hardcoded Level3 urls. To keep from double crushing.

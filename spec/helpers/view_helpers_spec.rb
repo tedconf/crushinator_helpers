@@ -110,6 +110,14 @@ RSpec.describe CrushinatorHelpers::ViewHelpers, type: :helper do
       )
     end
 
+    it "should smooth over double slashes in a URL" do
+      expect(helper.crushinate \
+        "https://s3.amazonaws.com/ted.conferences.profiles//00/00/03/8d/36/232758.jpg"
+      ).to eq (
+        "https://tedcdnpi-a.akamaihd.net/r/s3.amazonaws.com/ted.conferences.profiles/00/00/03/8d/36/232758.jpg?"
+      )
+    end
+
   end
 
 end
