@@ -88,25 +88,25 @@ RSpec.describe CrushinatorHelpers::ViewHelpers, type: :helper do
 
     it "should append options as a query string" do
       expect(helper.crushinate \
-        "http://images.ted.com#{path}", { money: 'nothing', chicks: 'free' }
+        "http://images.ted.com#{path}", { foo: 1, bar: 2 }
       ).to eq(
-        "#{akamai_url}/r/images.ted.com#{path}?chicks=free&money=nothing"
+        "#{akamai_url}/r/images.ted.com#{path}?bar=2&foo=1"
       )
     end
 
     it "should properly crushinate images on akamai image url" do
       expect(helper.crushinate \
-        "http://#{image_path}", { money: 'nothing', chicks: 'free' }
+        "http://#{image_path}", { foo: 1, bar: 2 }
       ).to eq(
-        "#{akamai_url}/r/#{image_path}?chicks=free&money=nothing"
+        "#{akamai_url}/r/#{image_path}?bar=2&foo=1"
       )
     end
 
     it "should properly crushinate images on akamai asset url" do
       expect(helper.crushinate \
-        "http://#{asset_path}", { money: 'nothing', chicks: 'free' }
+        "http://#{asset_path}", { foo: 1, bar: 2 }
       ).to eq(
-        "#{akamai_url}/r/#{asset_path}?chicks=free&money=nothing"
+        "#{akamai_url}/r/#{asset_path}?bar=2&foo=1"
       )
     end
 
