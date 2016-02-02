@@ -1,3 +1,6 @@
+# don't release to rubygems when doing 'rake release'
+ENV['gem_push'] = 'no'
+
 begin
   require 'bundler/setup'
 rescue LoadError
