@@ -1,0 +1,29 @@
+# Validations.yml
+#
+# Available query params that may be passed to the crushinator gem.  
+#
+# First column - Query param identifier of the feature
+# 'feature' - Describes the param purpose
+# 'validate' - Array of validations (regex) to run against the param
+# 'error' - Array of errors when a validation fails.  Indexed by order of 'validations'
+
+w:
+  feature: 'Width'
+  validate: 
+    - 'w=[0-9]+'
+  error: 
+    - 'a pixel value'
+h:
+  feature: 'Height'
+  validate: 
+    - 'h=[0-9]+'
+  error: 
+    - 'a pixel value'
+op:
+  feature: 'Resize geometry'
+  validate:
+    - 'op=<|>|\^|%|@|!'
+    - 'x=[0-9]+|y=[0-9]+'
+  error:
+    - 'a valid resize modifier'
+    - 'a height or width'
