@@ -23,12 +23,32 @@ module CrushinatorHelpers
         url = "#{match_data[1]}//#{match_data[2]}"
       end
 
-      if url.match(/(filepicker|tedcdn|(images|storage|tedlive|tedlive-staging|ted2017|ted2017-staging|tedwomen2016|tedwomen2016-staging|tedcdnp(e|f)-a)\.ted|(s3|s3-us-west-2)\.amazonaws|\.akamaihd)\.(io|com|net)/)
+      if is_valid_domain?(url)
         url = url.gsub(/.*\/\//, '')
         "https://tedcdnpi-a.akamaihd.net/r/#{url}?#{options.to_query}"
       else
         url
       end
     end
+
+    def is_valid_domain?(url)
+      image_hosts = [
+        'ted.com', 
+        'assets.tedcdn.com',
+        'pb-assets.tedcdn.com',
+        'assets2.tedcdn.com',
+        'tedcdnpf-a.akamaihd.net',
+        'tedcdnpa-a.akamaihd.net',
+        'tedcdnpe-a.akamaihd.net',
+        's3.amazonaws.com',
+        's3-us-west-2.amazonaws.com',
+        'www.filepicker.io'
+      ]
+      image_hosts.each do |h|
+        return true if url.match(h)
+      end
+      return false
+    end
+
   end
 end
