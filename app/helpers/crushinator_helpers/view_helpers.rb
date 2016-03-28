@@ -50,5 +50,8 @@ module CrushinatorHelpers
       return false
     end
 
+    def is_valid_param?(url)
+
+    end
   end
 end

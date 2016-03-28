@@ -118,6 +118,14 @@ RSpec.describe CrushinatorHelpers::ViewHelpers, type: :helper do
       )
     end
 
+    it 'should reject URLs that are not white listed' do
+      expect(helper.crushinate \
+        "https://bacon.com#{path}", {foo: 1, bar: 2}
+      ).to eq (
+        "https://bacon.com#{path}"
+      )
+    end
+
   end
 
 end
