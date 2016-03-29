@@ -83,7 +83,6 @@ RSpec.describe CrushinatorHelpers::ViewHelpers, type: :helper do
           )
         end
       end
-
     end
 
     it "should append options as a query string" do
@@ -118,7 +117,7 @@ RSpec.describe CrushinatorHelpers::ViewHelpers, type: :helper do
       )
     end
 
-    it 'should reject URLs that are not white listed' do
+    it 'should reject URLs that are not white listed (invalid domain)' do
       expect(helper.crushinate \
         "https://bacon.com#{path}", {foo: 1, bar: 2}
       ).to eq (
@@ -126,6 +125,16 @@ RSpec.describe CrushinatorHelpers::ViewHelpers, type: :helper do
       )
     end
 
-  end
+    describe "param validations" do
+      validations = HashWithIndifferentAccess.new(YAML.load(File.read(File.expand_path('../../../config/validations.yml', __FILE__))))
+      validations.each do |v|
+        it "should validate: #{v[1][:feature]}" do
+          expect{ helper.crushinate \
+            "http://images.ted.com#{path}", { v[0] => nil }
+          }.to raise_error v[1][:error][0]
+        end
+      end
 
+    end
+  end
 end

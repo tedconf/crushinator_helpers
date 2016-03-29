@@ -23,7 +23,7 @@ module CrushinatorHelpers
         url = "#{match_data[1]}//#{match_data[2]}"
       end
 
-      if is_valid_domain?(url)
+      if is_valid_domain?(url) && valid_options?(options)
         url = url.gsub(/.*\/\//, '')
         "https://tedcdnpi-a.akamaihd.net/r/#{url}?#{options.to_query}"
       else
@@ -50,8 +50,18 @@ module CrushinatorHelpers
       return false
     end
 
-    def is_valid_param?(url)
-
+    # Look up the validation rule from validations.yml 
+    def valid_options?(options)
+      validations = HashWithIndifferentAccess.new(YAML.load(File.read(File.expand_path('../../../../config/validations.yml', __FILE__))))
+      options.each do |option|
+        next if validations[option[0]].blank?
+        if option[1].to_s.match(validations[option[0]][:validate][0]).present?
+          next
+        else
+          raise validations[option[0]][:error][0]
+        end
+      end
+      true
     end
   end
 end

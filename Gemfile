@@ -12,6 +12,7 @@ gemspec
 
 # To use debugger
 # gem 'debugger'
+gem 'pry'
 
 # don't release to rubygems when doing 'rake release'
 ENV['gem_push'] = 'no'

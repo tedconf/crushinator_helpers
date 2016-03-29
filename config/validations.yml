@@ -10,20 +10,18 @@
 w:
   feature: 'Width'
   validate: 
-    - 'w=[0-9]+'
+    - '^[0-9]+$'
   error: 
-    - 'a pixel value'
+    - 'Invalid pixel value'
 h:
   feature: 'Height'
   validate: 
-    - 'h=[0-9]+'
+    - '^[0-9]+$'
   error: 
-    - 'a pixel value'
+    - 'Invalid pixel value'
 op:
   feature: 'Resize geometry'
   validate:
-    - 'op=<|>|\^|%|@|!'
-    - 'x=[0-9]+|y=[0-9]+'
+    - '^<|>|\^|%|@|!$'
   error:
-    - 'a valid resize modifier'
-    - 'a height or width'
+    - 'Invalid resize modifier'
