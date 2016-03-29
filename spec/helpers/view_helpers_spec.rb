@@ -131,7 +131,7 @@ RSpec.describe CrushinatorHelpers::ViewHelpers, type: :helper do
         it "should validate: #{v[1][:feature]}" do
           expect{ helper.crushinate \
             "http://images.ted.com#{path}", { v[0] => nil }
-          }.to raise_error v[1][:error][0]
+          }.to raise_error v[1][:error]
         end
       end
 

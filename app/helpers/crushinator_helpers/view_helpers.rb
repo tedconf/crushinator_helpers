@@ -52,13 +52,14 @@ module CrushinatorHelpers
 
     # Look up the validation rule from validations.yml 
     def valid_options?(options)
+      true if Rails.env.production?
       validations = HashWithIndifferentAccess.new(YAML.load(File.read(File.expand_path('../../../../config/validations.yml', __FILE__))))
       options.each do |option|
         next if validations[option[0]].blank?
-        if option[1].to_s.match(validations[option[0]][:validate][0]).present?
+        if option[1].to_s.match(validations[option[0]][:validate]).present?
           next
         else
-          raise validations[option[0]][:error][0]
+          raise validations[option[0]][:error]
         end
       end
       true

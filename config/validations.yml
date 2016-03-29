@@ -9,19 +9,41 @@
 
 w:
   feature: 'Width'
-  validate: 
-    - '^[0-9]+$'
-  error: 
-    - 'Invalid pixel value'
+  validate: '^[0-9]+$'
+  error: 'Invalid pixel value'
 h:
   feature: 'Height'
-  validate: 
-    - '^[0-9]+$'
-  error: 
-    - 'Invalid pixel value'
+  validate: '^[0-9]+$'
+  error: 'Invalid pixel value'
 op:
   feature: 'Resize geometry'
-  validate:
-    - '^<|>|\^|%|@|!$'
-  error:
-    - 'Invalid resize modifier'
+  validate: '^<|>|\^|%|@|!$'
+  error: 'Invalid resize modifier'
+c:
+  feature: 'Crop'
+  validate: '^<|>|\^|%|@|!$'
+  error: 'Invalid resize modifier'
+# op:
+#   feature: 'Resize geometry'
+#   validate: '^<|>|\^|%|@|!$'
+#   error: 'Invalid resize modifier'
+# op:
+#   feature: 'Resize geometry'
+#   validate: '^<|>|\^|%|@|!$'
+#   error: 'Invalid resize modifier'
+# op:
+#   feature: 'Resize geometry'
+#   validate: '^<|>|\^|%|@|!$'
+#   error: 'Invalid resize modifier'
+# op:
+#   feature: 'Resize geometry'
+#   validate: '^<|>|\^|%|@|!$'
+#   error: 'Invalid resize modifier'
+# op:
+#   feature: 'Resize geometry'
+#   validate: '^<|>|\^|%|@|!$'
+#   error: 'Invalid resize modifier'
+# op:
+#   feature: 'Resize geometry'
+#   validate: '^<|>|\^|%|@|!$'
+#   error: 'Invalid resize modifier'
