@@ -34,14 +34,14 @@ module CrushinatorHelpers
     def is_valid_domain?(url)
       image_hosts = [
         '.ted.com', 
-        '.assets.tedcdn.com',
-        '.pb-assets.tedcdn.com',
-        '.assets2.tedcdn.com',
-        '.tedcdnpf-a.akamaihd.net',
-        '.tedcdnpa-a.akamaihd.net',
-        '.tedcdnpe-a.akamaihd.net',
-        '.s3.amazonaws.com',
-        '.s3-us-west-2.amazonaws.com',
+        'assets.tedcdn.com',
+        'pb-assets.tedcdn.com',
+        'assets2.tedcdn.com',
+        'tedcdnpf-a.akamaihd.net',
+        'tedcdnpa-a.akamaihd.net',
+        'tedcdnpe-a.akamaihd.net',
+        's3.amazonaws.com',
+        's3-us-west-2.amazonaws.com',
         'www.filepicker.io'
       ]
       image_hosts.each do |h|
