@@ -42,7 +42,7 @@ module CrushinatorHelpers
         '.tedcdnpe-a.akamaihd.net',
         '.s3.amazonaws.com',
         '.s3-us-west-2.amazonaws.com',
-        '.www.filepicker.io'
+        'www.filepicker.io'
       ]
       image_hosts.each do |h|
         return true if url.match(h)
