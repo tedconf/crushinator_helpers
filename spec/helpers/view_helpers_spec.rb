@@ -128,9 +128,14 @@ RSpec.describe CrushinatorHelpers::ViewHelpers, type: :helper do
     describe "param validations" do
       validations = HashWithIndifferentAccess.new(YAML.load(File.read(File.expand_path('../../../config/validations.yml', __FILE__))))
       validations.each do |v|
+        next if v[1][:validate].nil?
+        # if v[1][:validate] == ".*"
+        #   binding.pry
+        # end
         it "should validate: #{v[1][:feature]}" do
+          # binding.pry
           expect{ helper.crushinate \
-            "http://images.ted.com#{path}", { v[0] => nil }
+            "http://images.ted.com#{path}", { v[0] => '' }
           }.to raise_error v[1][:error]
         end
       end

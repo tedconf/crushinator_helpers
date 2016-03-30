@@ -6,29 +6,84 @@
 # 'feature' - Describes the param purpose
 # 'validate' - Array of validations (regex) to run against the param
 # 'error' - Array of errors when a validation fails.  Indexed by order of 'validations'
+atv_showcase:
+  feature: 'Add text to image'
+  error: 'No validation yet. Something else broke.'
+
+blur:
+  feature: 'Blur'
+  validate: '((^|,)([0-9]+((\.|)[0-9]{0,}))){2,}$'
+  error: 'Expected radius and sigma values'
+
+c:
+  feature: 'Crop an image AFTER a resize'
+  validate: '((^|,)[0-9]+){4}$'
+  error: 'Expected crop values in format x,y,w,h'
+
+cb:
+  feature: 'Cache buster'
+  error: 'Any value, no validation.'
+
+colorize:
+  feature: 'Colorize an image'
+  error: 'r,g,b expected as integers'
+  validation: '((^|,)[0-9]+){3}$'
+
+gamma:
+  feature: 'Gamma correction'
+  error: 'r,g,b expected as integers'
+  validation: '((^|,)[0-9]+){3}$'
+
+grayscale:
+  feature: 'Make image grayscale'
+  error: 'Expected integer between 0 and 100'
+  validation: '^([0-9]{1,2}|100)$'
+
+h:
+  feature: 'Height'
+  validate: '^[0-9]+$'
+  error: 'Expected height pixel value'
+
+mono:
+  feature: 'Make image monochrome'
+  error: 'Truthy (any value except false or nil)'
+  validation: '^(?!^(false|nil|null| )$).*$'
+
+op:
+  feature: 'Resize geometry'
+  validate: '^<|>|\^|%|@|!$'
+  error: "Valid resize modifiers are !,@,%,^,<,> with a 'h' or 'w'"
+
+precrop:
+  feature: 'Crop an image BEFORE a resize'
+  validate: '((^|,)[0-9]+){4}'
+  error: 'Expected crop values in format x,y,w,h'
+
+quality:
+  feature: 'Image compression quality'
+  error: "Unsharp values are passed in as array values of the querystring 'u'. Defaults are: [r]adius: 2, [s]igma: 0.5, [a]mount: 0.8, [t]hreshold: 0"
+  validation: '.*'
+
+u:
+  feature: 'Unsharp'
+  validate: '^[0-9]+$'
+  error: 'Expected width pixel value'
 
 w:
   feature: 'Width'
   validate: '^[0-9]+$'
-  error: 'Invalid pixel value'
-h:
-  feature: 'Height'
-  validate: '^[0-9]+$'
-  error: 'Invalid pixel value'
-op:
-  feature: 'Resize geometry'
-  validate: '^<|>|\^|%|@|!$'
-  error: 'Invalid resize modifier'
-c:
-  feature: 'Crop'
-  validate: '^<|>|\^|%|@|!$'
-  error: 'Invalid resize modifier'
-# op:
-#   feature: 'Resize geometry'
-#   validate: '^<|>|\^|%|@|!$'
-#   error: 'Invalid resize modifier'
-# op:
-#   feature: 'Resize geometry'
+  error: 'Expected width pixel value'
+
+
+
+
+
+
+
+
+
+# blur:
+#   feature: 'Blur'
 #   validate: '^<|>|\^|%|@|!$'
 #   error: 'Invalid resize modifier'
 # op:
