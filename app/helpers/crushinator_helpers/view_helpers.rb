@@ -55,8 +55,8 @@ module CrushinatorHelpers
       true if Rails.env.production?
       validations = HashWithIndifferentAccess.new(YAML.load(File.read(File.expand_path('../../../../config/validations.yml', __FILE__))))
       options.each do |option|
-        next if validations[option[0]].blank?
-        if option[1].to_s.match(validations[option[0]][:validate]).present?
+        next if validations[option[0]].blank? || validations[option[0]][:validation].blank?
+        if option[1].to_s.match(validations[option[0]][:validation]).present?
           next
         else
           raise validations[option[0]][:error]

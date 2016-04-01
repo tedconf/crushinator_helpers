@@ -12,12 +12,12 @@ atv_showcase:
 
 blur:
   feature: 'Blur'
-  validate: '((^|,)([0-9]+((\.|)[0-9]{0,}))){2,}$'
+  validation: '((^|,)([0-9]+((\.|)[0-9]{0,}))){2,}$'
   error: 'Expected radius and sigma values'
 
 c:
   feature: 'Crop an image AFTER a resize'
-  validate: '((^|,)[0-9]+){4}$'
+  validation: '((^|,)[0-9]+){4}$'
   error: 'Expected crop values in format x,y,w,h'
 
 cb:
@@ -41,7 +41,7 @@ grayscale:
 
 h:
   feature: 'Height'
-  validate: '^[0-9]+$'
+  validation: '^[0-9]+$'
   error: 'Expected height pixel value'
 
 mono:
@@ -51,12 +51,12 @@ mono:
 
 op:
   feature: 'Resize geometry'
-  validate: '^<|>|\^|%|@|!$'
+  validation: '^<|>|\^|%|@|!$'
   error: "Valid resize modifiers are !,@,%,^,<,> with a 'h' or 'w'"
 
 precrop:
   feature: 'Crop an image BEFORE a resize'
-  validate: '((^|,)[0-9]+){4}'
+  validation: '((^|,)[0-9]+){4}'
   error: 'Expected crop values in format x,y,w,h'
 
 quality:
@@ -66,12 +66,12 @@ quality:
 
 u:
   feature: 'Unsharp'
-  validate: '^[0-9]+$'
+  validation: '^[0-9]+$'
   error: 'Expected width pixel value'
 
 w:
   feature: 'Width'
-  validate: '^[0-9]+$'
+  validation: '^[0-9]+$'
   error: 'Expected width pixel value'
 
 
