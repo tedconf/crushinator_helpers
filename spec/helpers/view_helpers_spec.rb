@@ -5,7 +5,8 @@ RSpec.describe CrushinatorHelpers::ViewHelpers, type: :helper do
   describe "crushinate" do
 
     let(:l3_url) { "http://img.tedcdn.com"}
-    let(:akamai_url) { "https://tedcdnpi-a.akamaihd.net"}
+    let(:edgecast_url) { "https://tedcdnpi-a.akamaihd.net"}
+    let(:edgecast_url) { "https://pi.tedcdn.com"}
 
     let(:path) { "/images/playlists/are_we_alone_in_the_universe.jpg"}
     let(:image_path) { "tedcdnpe-a.akamaihd.net/images/ted/d3b8fd408c1f2576d86a6d781da0dfd768d0cda4_240x180.jpg"}
@@ -23,15 +24,15 @@ RSpec.describe CrushinatorHelpers::ViewHelpers, type: :helper do
           expect(helper.crushinate \
             "http://#{proxied}#{path}"
           ).to eq(
-            "#{akamai_url}/r/#{proxied}#{path}?"
+            "#{edgecast_url}/r/#{proxied}#{path}?"
           )
         end
 
         it "should never attempt to pass an image through crushinate twice" do
           expect(helper.crushinate \
-            "#{akamai_url}/r/#{proxied}#{path}?ll=1&quality=89&w=500"
+            "#{edgecast_url}/r/#{proxied}#{path}?ll=1&quality=89&w=500"
           ).to eq(
-            "#{akamai_url}/r/#{proxied}#{path}?ll=1&quality=89&w=500"
+            "#{edgecast_url}/r/#{proxied}#{path}?ll=1&quality=89&w=500"
           )
         end
 
@@ -39,16 +40,16 @@ RSpec.describe CrushinatorHelpers::ViewHelpers, type: :helper do
           expect(helper.crushinate \
             "#{l3_url}/r/#{proxied}#{path}?ll=1&quality=89&w=500"
           ).to eq(
-            "#{akamai_url}/r/#{proxied}#{path}?ll=1&quality=89&w=500"
+            "#{edgecast_url}/r/#{proxied}#{path}?ll=1&quality=89&w=500"
           )
         end
 
         it "should prefer new options when attempting to crushinate an image twice" do
           expect(helper.crushinate \
-            "#{akamai_url}/r/#{proxied}#{path}?ll=1&quality=89&w=500",
+            "#{edgecast_url}/r/#{proxied}#{path}?ll=1&quality=89&w=500",
             {quality: 90, w: 320}
           ).to eq(
-            "#{akamai_url}/r/#{proxied}#{path}?ll=1&quality=90&w=320"
+            "#{edgecast_url}/r/#{proxied}#{path}?ll=1&quality=90&w=320"
           )
         end
       end
@@ -62,24 +63,24 @@ RSpec.describe CrushinatorHelpers::ViewHelpers, type: :helper do
           expect(helper.crushinate \
             "http://#{proxied}#{path}"
           ).to eq(
-            "#{akamai_url}/r/#{proxied}#{path}?"
+            "#{edgecast_url}/r/#{proxied}#{path}?"
           )
         end
 
         it "should never attempt to pass an image through crushinate twice" do
           expect(helper.crushinate \
-            "#{akamai_url}/r/#{proxied}#{path}?ll=1&quality=89&w=500"
+            "#{edgecast_url}/r/#{proxied}#{path}?ll=1&quality=89&w=500"
           ).to eq(
-            "#{akamai_url}/r/#{proxied}#{path}?ll=1&quality=89&w=500"
+            "#{edgecast_url}/r/#{proxied}#{path}?ll=1&quality=89&w=500"
           )
         end
 
         it "should prefer new options when attempting to crushinate an image twice" do
           expect(helper.crushinate \
-            "#{akamai_url}/r/#{proxied}#{path}?ll=1&quality=89&w=500",
+            "#{edgecast_url}/r/#{proxied}#{path}?ll=1&quality=89&w=500",
             {quality: 90, w: 320}
           ).to eq(
-            "#{akamai_url}/r/#{proxied}#{path}?ll=1&quality=90&w=320"
+            "#{edgecast_url}/r/#{proxied}#{path}?ll=1&quality=90&w=320"
           )
         end
       end
@@ -90,7 +91,7 @@ RSpec.describe CrushinatorHelpers::ViewHelpers, type: :helper do
       expect(helper.crushinate \
         "http://images.ted.com#{path}", { foo: 1, bar: 2 }
       ).to eq(
-        "#{akamai_url}/r/images.ted.com#{path}?bar=2&foo=1"
+        "#{edgecast_url}/r/images.ted.com#{path}?bar=2&foo=1"
       )
     end
 
@@ -98,7 +99,7 @@ RSpec.describe CrushinatorHelpers::ViewHelpers, type: :helper do
       expect(helper.crushinate \
         "http://#{image_path}", { foo: 1, bar: 2 }
       ).to eq(
-        "#{akamai_url}/r/#{image_path}?bar=2&foo=1"
+        "#{edgecast_url}/r/#{image_path}?bar=2&foo=1"
       )
     end
 
@@ -106,7 +107,7 @@ RSpec.describe CrushinatorHelpers::ViewHelpers, type: :helper do
       expect(helper.crushinate \
         "http://#{asset_path}", { foo: 1, bar: 2 }
       ).to eq(
-        "#{akamai_url}/r/#{asset_path}?bar=2&foo=1"
+        "#{edgecast_url}/r/#{asset_path}?bar=2&foo=1"
       )
     end
 
@@ -114,7 +115,7 @@ RSpec.describe CrushinatorHelpers::ViewHelpers, type: :helper do
       expect(helper.crushinate \
         "https://s3.amazonaws.com/ted.conferences.profiles//00/00/03/8d/36/232758.jpg"
       ).to eq (
-        "https://tedcdnpi-a.akamaihd.net/r/s3.amazonaws.com/ted.conferences.profiles/00/00/03/8d/36/232758.jpg?"
+        "https://pi.tedcdn.com/r/s3.amazonaws.com/ted.conferences.profiles/00/00/03/8d/36/232758.jpg?"
       )
     end
 
