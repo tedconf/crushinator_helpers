@@ -9,8 +9,8 @@ RSpec.describe CrushinatorHelpers::ViewHelpers, type: :helper do
     let(:edgecast_url) { "https://pi.tedcdn.com"}
 
     let(:path) { "/images/playlists/are_we_alone_in_the_universe.jpg"}
-    let(:image_path) { "tedcdnpe-a.akamaihd.net/images/ted/d3b8fd408c1f2576d86a6d781da0dfd768d0cda4_240x180.jpg"}
-    let(:asset_path) { "tedcdnpf-a.akamaihd.net/images/playlists/talks_for_foodies_268x268.jpg"}
+    let(:image_path) { "pe.tedcdn.com/images/ted/d3b8fd408c1f2576d86a6d781da0dfd768d0cda4_240x180.jpg"}
+    let(:asset_path) { "pf.tedcdn.com/images/playlists/talks_for_foodies_268x268.jpg"}
 
 
     describe "https requests" do
