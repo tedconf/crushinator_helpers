@@ -1,11 +1,7 @@
 PATH
   remote: .
   specs:
-<<<<<<< Updated upstream
-    crushinator_helpers (0.0.12)
-=======
     crushinator_helpers (0.0.14)
->>>>>>> Stashed changes
       rails (~> 4)
 
 GEM
