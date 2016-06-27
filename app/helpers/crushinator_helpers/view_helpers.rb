@@ -33,13 +33,13 @@ module CrushinatorHelpers
           url = "#{match_data[1]}//#{match_data[2]}"
         end
 
-        if url.match(/(filepicker|tedcdn|(images|storage|tedlive|tedlive-staging|ted2017|ted2017-staging|tedwomen2016|tedwomen2016-staging|tedsummit2016|tedsummit2016-staging|tedcdnp(e|f)-a)\.ted|(s3|s3-us-west-2)\.amazonaws|\.akamaihd)\.(io|com|net)/)
+        if url.match(/(filepicker|tedcdn|(images|storage|tedlive|tedlive-staging|ted2017|ted2017-staging|tedwomen2016|tedwomen2016-staging|tedsummit2016|tedsummit2016-staging|tedcdnp(e|f)-a)\.ted|(s3|s3-us-west-2)\.amazonaws|\.akamaihd|\.wordpress)\.(io|com|net)/)
           url = url.gsub(/.*\/\//, '')
           "https://pi.tedcdn.com/r/#{url}?#{options.to_query}"
         else
           url
         end
-      else 
+      else
         url
       end
 
