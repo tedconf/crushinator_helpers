@@ -55,10 +55,8 @@ module CrushinatorHelpers
         "s3-us-west-2.amazonaws.com",
         "www.filepicker.io"
       ]
-      image_hosts.each do |h|
-        return true if url.match(h)
-      end
-      return false
+
+      image_hosts.any? { |host| url.match(host) }
     end
 
     # Look up the validation rule from validations.yml

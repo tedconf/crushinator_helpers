@@ -11,9 +11,7 @@ RSpec.describe CrushinatorHelpers::ViewHelpers, type: :helper do
     let(:image_path) { "pe.tedcdn.com/images/ted/d3b8fd408c1f2576d86a6d781da0dfd768d0cda4_240x180.jpg"}
     let(:asset_path) { "pf.tedcdn.com/images/playlists/talks_for_foodies_268x268.jpg"}
 
-
     let(:crushinator_hostname) { "pi.tedcdn.com" }
-
 
     describe "https requests" do
 
@@ -105,7 +103,6 @@ RSpec.describe CrushinatorHelpers::ViewHelpers, type: :helper do
     end
 
     it "should properly crushinate images on akamai asset url" do
-      binding.pry
       expect(helper.crushinate \
         "http://#{asset_path}", { foo: 1, bar: 2 }
       ).to eq(
