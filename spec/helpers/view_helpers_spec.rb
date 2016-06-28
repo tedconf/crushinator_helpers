@@ -5,7 +5,7 @@ RSpec.describe CrushinatorHelpers::ViewHelpers, type: :helper do
   describe "crushinate" do
 
     let(:l3_url) { "http://img.tedcdn.com"}
-    let(:akamai_url) { "https://tedcdnpi-a.akamaihd.net"}
+    let(:akamai_url) { "https://pi.tedcdn.com"}
 
     let(:path) { "/images/playlists/are_we_alone_in_the_universe.jpg"}
     let(:image_path) { "tedcdnpe-a.akamaihd.net/images/ted/d3b8fd408c1f2576d86a6d781da0dfd768d0cda4_240x180.jpg"}
@@ -113,7 +113,7 @@ RSpec.describe CrushinatorHelpers::ViewHelpers, type: :helper do
       expect(helper.crushinate \
         "https://s3.amazonaws.com/ted.conferences.profiles//00/00/03/8d/36/232758.jpg"
       ).to eq (
-        "https://tedcdnpi-a.akamaihd.net/r/s3.amazonaws.com/ted.conferences.profiles/00/00/03/8d/36/232758.jpg?"
+        "https://pi.tedcdn.com/r/s3.amazonaws.com/ted.conferences.profiles/00/00/03/8d/36/232758.jpg?"
       )
     end
 

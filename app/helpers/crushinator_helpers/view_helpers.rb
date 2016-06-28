@@ -23,9 +23,16 @@ module CrushinatorHelpers
         url = "#{match_data[1]}//#{match_data[2]}"
       end
 
+      # This is for possible new hardcoded Akamai url's. To keep from double crushing
+      if url.match(/pi.tedcdn.com\/r\//)
+        match_data = /(.+)?\/\/pi.tedcdn.com\/r\/([^?]+)\??(.*)/.match(url)
+        options = Rack::Utils.parse_nested_query(match_data[3]).symbolize_keys.merge(options.symbolize_keys)
+        url = "#{match_data[1]}//#{match_data[2]}"
+      end
+
       if is_valid_domain?(url) && valid_options?(options)
         url = url.gsub(/.*\/\//, '')
-        "https://tedcdnpi-a.akamaihd.net/r/#{url}?#{options.to_query}"
+        "https://pi.tedcdn.com/r/#{url}?#{options.to_query}"
       else
         url
       end
@@ -33,7 +40,7 @@ module CrushinatorHelpers
 
     def is_valid_domain?(url)
       image_hosts = [
-        '.ted.com', 
+        '.ted.com',
         'assets.tedcdn.com',
         'pb-assets.tedcdn.com',
         'assets2.tedcdn.com',
@@ -50,7 +57,7 @@ module CrushinatorHelpers
       return false
     end
 
-    # Look up the validation rule from validations.yml 
+    # Look up the validation rule from validations.yml
     def valid_options?(options)
       true if Rails.env.production?
       validations = HashWithIndifferentAccess.new(YAML.load(File.read(File.expand_path('../../../../config/validations.yml', __FILE__))))
