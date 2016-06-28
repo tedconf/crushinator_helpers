@@ -12,6 +12,9 @@ RSpec.describe CrushinatorHelpers::ViewHelpers, type: :helper do
     let(:asset_path) { "tedcdnpf-a.akamaihd.net/images/playlists/talks_for_foodies_268x268.jpg"}
 
 
+    let(:crushinator_hostname) { "pi.tedcdn.com" }
+
+
     describe "https requests" do
 
       before(:each) do
