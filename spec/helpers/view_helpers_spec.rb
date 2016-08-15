@@ -19,7 +19,7 @@ RSpec.describe CrushinatorHelpers::ViewHelpers, type: :helper do
         allow(controller.request).to receive(:ssl?).and_return(true)
       end
 
-      %w(assets.tedcdn.com images.ted.com s3.amazonaws.com storage.ted.com tedlive.ted.com tedlive-staging.ted.com).each do |proxied|
+      %w(assets.tedcdn.com images.ted.com s3.amazonaws.com storage.ted.com tedconfblog.files.wordpress.com tedideas.files.wordpress.com tedlive.ted.com tedlive-staging.ted.com).each do |proxied|
         it "should add ssl prefix and suffix for #{proxied}" do
           expect(helper.crushinate \
             "http://#{proxied}#{path}"
