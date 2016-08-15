@@ -51,6 +51,7 @@ module CrushinatorHelpers
         "tedcdnpa-a.akamaihd.net",
         "tedcdnpe-a.akamaihd.net",
         "tedconfblog.files.wordpress.com",
+        "tedideas.files.wordpress.com",
         "s3.amazonaws.com",
         "s3-us-west-2.amazonaws.com",
         "www.filepicker.io"
