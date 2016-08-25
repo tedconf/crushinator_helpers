@@ -5,13 +5,13 @@ RSpec.describe CrushinatorHelpers::ViewHelpers, type: :helper do
   describe "crushinate" do
 
     let(:l3_url) { "http://img.tedcdn.com"}
-    let(:edgecast_url) { "https://tedcdnpi-a.akamaihd.net"}
     let(:edgecast_url) { "https://pi.tedcdn.com"}
 
     let(:path) { "/images/playlists/are_we_alone_in_the_universe.jpg"}
     let(:image_path) { "pe.tedcdn.com/images/ted/d3b8fd408c1f2576d86a6d781da0dfd768d0cda4_240x180.jpg"}
     let(:asset_path) { "pf.tedcdn.com/images/playlists/talks_for_foodies_268x268.jpg"}
 
+    let(:crushinator_hostname) { "pi.tedcdn.com" }
 
     describe "https requests" do
 
@@ -84,7 +84,6 @@ RSpec.describe CrushinatorHelpers::ViewHelpers, type: :helper do
           )
         end
       end
-
     end
 
     it "should append options as a query string" do
@@ -119,6 +118,25 @@ RSpec.describe CrushinatorHelpers::ViewHelpers, type: :helper do
       )
     end
 
-  end
+    it 'should reject URLs that are not white listed (invalid domain)' do
+      expect(helper.crushinate \
+        "https://bacon.com#{path}", {foo: 1, bar: 2}
+      ).to eq (
+        "https://bacon.com#{path}"
+      )
+    end
 
+    describe "param validations" do
+      validations = HashWithIndifferentAccess.new(YAML.load(File.read(File.expand_path('../../../config/validations.yml', __FILE__))))
+      validations.each do |v|
+        next if v[1][:validate].nil?
+        it "should validate: #{v[1][:feature]}" do
+          expect{ helper.crushinate \
+            "http://images.ted.com#{path}", { v[0] => 'f' }
+          }.to raise_error v[1][:error]
+        end
+      end
+
+    end
+  end
 end

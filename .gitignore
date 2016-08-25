@@ -3,6 +3,7 @@ log/*.log
 pkg/
 # ci_reporter_rspec
 spec/reports/
+spec/dummy/log/*.log
 test/dummy/db/*.sqlite3
 test/dummy/db/*.sqlite3-journal
 test/dummy/log/*.log

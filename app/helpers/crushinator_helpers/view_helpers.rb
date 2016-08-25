@@ -26,23 +26,53 @@ module CrushinatorHelpers
           url = "#{match_data[1]}//#{match_data[2]}"
         end
 
-        # This is for possible new hardcoded Edgecast url's. To keep from double crushing
+        # This is for possible new hardcoded Akamai url's. To keep from double crushing
         if url.match(/pi.tedcdn.com\/r\//)
           match_data = /(.+)?\/\/pi.tedcdn.com\/r\/([^?]+)\??(.*)/.match(url)
           options = Rack::Utils.parse_nested_query(match_data[3]).symbolize_keys.merge(options.symbolize_keys)
           url = "#{match_data[1]}//#{match_data[2]}"
         end
 
-        if url.match(/(filepicker|tedcdn|(images|storage|tedlive|tedlive-staging|ted2017|ted2017-staging|tedwomen2016|tedwomen2016-staging|tedsummit2016|tedsummit2016-staging|tedcdnp(e|f)-a)\.ted|(s3|s3-us-west-2)\.amazonaws|\.akamaihd|\.wordpress)\.(io|com|net)/)
+        if is_valid_domain?(url) && valid_options?(options)
           url = url.gsub(/.*\/\//, '')
           "https://pi.tedcdn.com/r/#{url}?#{options.to_query}"
         else
           url
         end
-      else
-        url
-      end
 
+      end
+    end
+
+    def is_valid_domain?(url)
+      image_hosts = [
+        "ted.com",
+        "tedcdn.com",
+        "tedcdnpf-a.akamaihd.net",
+        "tedcdnpa-a.akamaihd.net",
+        "tedcdnpe-a.akamaihd.net",
+        "tedconfblog.files.wordpress.com",
+        "tedideas.files.wordpress.com",
+        "s3.amazonaws.com",
+        "s3-us-west-2.amazonaws.com",
+        "www.filepicker.io"
+      ]
+
+      image_hosts.any? { |host| url.match(host) }
+    end
+
+    # Look up the validation rule from validations.yml
+    def valid_options?(options)
+      true if Rails.env.production?
+      validations = HashWithIndifferentAccess.new(YAML.load(File.read(File.expand_path('../../../../config/validations.yml', __FILE__))))
+      options.each do |option|
+        next if validations[option[0]].blank? || validations[option[0]][:validation].blank?
+        if option[1].to_s.match(validations[option[0]][:validation]).present?
+          next
+        else
+          raise validations[option[0]][:error]
+        end
+      end
+      true
     end
   end
 end

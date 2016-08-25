@@ -141,10 +141,11 @@ DEPENDENCIES
   ci_reporter_rspec
   crushinator_helpers!
   guard-rspec
+  pry
   rspec
   rspec-rails
   ruby_gntp
   thor
 
 BUNDLED WITH
-   1.10.5
+   1.11.2
