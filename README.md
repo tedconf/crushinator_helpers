@@ -1,6 +1,11 @@
 # Build Crushinated URLs
-
+<!--- project_def -->
 Provides a helper to construct [crushinated](https://github.com/tedconf/crushinator) image URLs.
+
+Vertical: Hero
+
+Related links: https://github.com/tedconf/crushinator_helpers
+<!--- /project_def -->
 
 * Versions < 0.0.5 use Level3 CDN. Versions 0.0.5+ are SSL only
 
