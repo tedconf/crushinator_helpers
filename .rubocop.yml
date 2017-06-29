@@ -1,0 +1,26 @@
+inherit_from:
+  - https://raw.githubusercontent.com/tedconf/code-style-guides/master/linters/rubocop/rubocop.yml
+  - .rubocop_todo.yml
+
+AllCops:
+  Exclude:
+    - 'tmp/**/*'
+    - 'data/hashinator/*'
+    - 'data/docker_images/purger/notifier_client/**/*'
+    - 'data/docker_images/logstash/spec/logstash/*'
+
+Rails:
+  Enabled: false
+
+Style/NumericPredicate:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+    - '*.gemspec'
+
+# because this is used across numerous versions,
+# # this cop produces a negative effect
+# Style/RedundantFreeze:
+#   Enabled: false

@@ -16,3 +16,12 @@ gem 'pry'
 
 # don't release to rubygems when doing 'rake release'
 ENV['gem_push'] = 'no'
+
+group :development do
+  gem 'brakeman', '~> 3.4.0', require: false
+  gem 'bundler-audit', '~> 0.5.0'
+  gem 'rubocop-checkstyle_formatter', '~> 0.3.0'
+  gem 'simplecov', '~> 0.12.0', require: false
+  gem 'simplecov-rcov', require: false
+  gem 'terminal-notifier-guard', '~> 1.6.0'
+end
