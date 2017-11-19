@@ -1,4 +1,5 @@
 .bundle/
+.rubocop-http*
 log/*.log
 pkg/
 # ci_reporter_rspec

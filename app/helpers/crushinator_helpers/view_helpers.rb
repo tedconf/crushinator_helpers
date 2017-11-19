@@ -1,6 +1,5 @@
 module CrushinatorHelpers
   module ViewHelpers
-
     def crushinate(url, options={})
       # Smooth over superfluous slashes in a URL
       url = url.gsub(/([^:])\/\/+/) do
