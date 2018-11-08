@@ -71,32 +71,3 @@ w:
   feature: 'Width'
   validation: '^[0-9]+$'
   error: 'Expected width pixel value'
-
-
-
-
-
-
-
-
-
-# blur:
-#   feature: 'Blur'
-#   validate: '^<|>|\^|%|@|!$'
-#   error: 'Invalid resize modifier'
-# op:
-#   feature: 'Resize geometry'
-#   validate: '^<|>|\^|%|@|!$'
-#   error: 'Invalid resize modifier'
-# op:
-#   feature: 'Resize geometry'
-#   validate: '^<|>|\^|%|@|!$'
-#   error: 'Invalid resize modifier'
-# op:
-#   feature: 'Resize geometry'
-#   validate: '^<|>|\^|%|@|!$'
-#   error: 'Invalid resize modifier'
-# op:
-#   feature: 'Resize geometry'
-#   validate: '^<|>|\^|%|@|!$'
-#   error: 'Invalid resize modifier'
