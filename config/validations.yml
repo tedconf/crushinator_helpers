@@ -66,8 +66,6 @@ quality:
 
 u:
   feature: 'Unsharp'
-  validation: '^[0-9]+$'
-  error: 'Expected width pixel value'
 
 w:
   feature: 'Width'
