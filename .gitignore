@@ -1,5 +1,6 @@
 .bundle/
 .rubocop-http*
+Gemfile.lock
 log/*.log
 pkg/
 # ci_reporter_rspec
