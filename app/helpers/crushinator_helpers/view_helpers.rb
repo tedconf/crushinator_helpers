@@ -53,6 +53,7 @@ module CrushinatorHelpers
         "tedideas.files.wordpress.com",
         "s3.amazonaws.com",
         "s3-us-west-2.amazonaws.com",
+        "userdata.amara.org",
         "www.filepicker.io"
       ]
 
