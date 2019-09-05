@@ -32,7 +32,7 @@ module CrushinatorHelpers
           url = "#{match_data[1]}//#{match_data[2]}"
         end
 
-        if is_valid_domain?(url) && valid_options?(options)
+        if is_valid_domain?(url) && is_valid_extension?(url) && valid_options?(options)
           url = url.gsub(/.*\/\//, '')
           "https://pi.tedcdn.com/r/#{url}?#{options.to_query}"
         else
@@ -57,6 +57,10 @@ module CrushinatorHelpers
       ]
 
       image_hosts.any? { |host| url.match(host) }
+    end
+
+    def is_valid_extension?(url)
+      File.extname(URI(url).path) != '.svg'
     end
 
     # Look up the validation rule from validations.yml

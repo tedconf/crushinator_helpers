@@ -126,6 +126,11 @@ RSpec.describe CrushinatorHelpers::ViewHelpers, type: :helper do
       )
     end
 
+    it 'should reject URLs that are for svgs' do # & other extensions in the future?
+      expect(helper.crushinate('http://avatars.ted.com/1234.svg'))
+        .to eq('http://avatars.ted.com/1234.svg')
+    end
+
     describe "param validations" do
       validations = HashWithIndifferentAccess.new(YAML.load(File.read(File.expand_path('../../../config/validations.yml', __FILE__))))
       validations.each do |v|
