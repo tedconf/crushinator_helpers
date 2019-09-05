@@ -119,12 +119,6 @@ Metrics/MethodLength:
 Metrics/PerceivedComplexity:
   Max: 9
 
-# Offense count: 3
-# Cop supports --auto-correct.
-Performance/RedundantMatch:
-  Exclude:
-    - 'app/helpers/crushinator_helpers/view_helpers.rb'
-
 # Offense count: 2
 # Cop supports --auto-correct.
 Security/YAMLLoad:

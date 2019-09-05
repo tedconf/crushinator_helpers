@@ -9,9 +9,6 @@ AllCops:
     - 'data/docker_images/purger/notifier_client/**/*'
     - 'data/docker_images/logstash/spec/logstash/*'
 
-Rails:
-  Enabled: false
-
 Style/NumericPredicate:
   Enabled: false
 
