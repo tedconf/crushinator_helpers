@@ -24,7 +24,7 @@ Layout/ExtraSpacing:
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles, IndentationWidth.
 # SupportedStyles: consistent, special_for_inner_method_call, special_for_inner_method_call_in_parentheses
-Layout/FirstParameterIndentation:
+Layout/IndentFirstArgument:
   Exclude:
     - 'spec/helpers/view_helpers_spec.rb'
 
