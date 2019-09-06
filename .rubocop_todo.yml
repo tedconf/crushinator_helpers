@@ -24,7 +24,7 @@ Layout/ExtraSpacing:
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles, IndentationWidth.
 # SupportedStyles: consistent, special_for_inner_method_call, special_for_inner_method_call_in_parentheses
-Layout/FirstParameterIndentation:
+Layout/IndentFirstArgument:
   Exclude:
     - 'spec/helpers/view_helpers_spec.rb'
 
@@ -118,12 +118,6 @@ Metrics/MethodLength:
 # Offense count: 1
 Metrics/PerceivedComplexity:
   Max: 9
-
-# Offense count: 3
-# Cop supports --auto-correct.
-Performance/RedundantMatch:
-  Exclude:
-    - 'app/helpers/crushinator_helpers/view_helpers.rb'
 
 # Offense count: 2
 # Cop supports --auto-correct.
