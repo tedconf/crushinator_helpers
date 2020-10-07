@@ -22,9 +22,11 @@ RSpec.describe CrushinatorHelpers::ViewHelpers, type: :helper do
       %w(
         assets.tedcdn.com
         images.ted.com
+        pb-assets.tedcdn.com
         s3.amazonaws.com
         storage.ted.com
         tedconfblog.files.wordpress.com
+        talkstar-assets.s3.amazonaws.com
         tedideas.files.wordpress.com
         tedlive.ted.com
         tedlive-staging.ted.com
