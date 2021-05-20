@@ -1,7 +1,6 @@
 .rubocop-http*
 Gemfile.lock
 log/*.log
-pkg/
 # ci_reporter_rspec
 spec/reports/
 spec/dummy/log/*.log
