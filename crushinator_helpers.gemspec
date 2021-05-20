@@ -24,11 +24,18 @@ Gem::Specification.new do |s|
   end
 
   s.add_dependency 'rails', '>= 4.0'
-  s.add_development_dependency 'bundler', '>=1.15.0'
-
+  s.add_development_dependency 'bundler', '> 2.0'
+  s.add_development_dependency "brakeman"
+  s.add_development_dependency "bundler-audit"
+  s.add_development_dependency "rubocop-checkstyle_formatter"
   s.add_development_dependency "rspec"
+  s.add_development_dependency "rake", "~> 13.0"
   s.add_development_dependency "rspec-rails"
   s.add_development_dependency "guard-rspec"
   s.add_development_dependency "ruby_gntp"
   s.add_development_dependency "ci_reporter_rspec"
+  s.add_development_dependency "pry"
+  s.add_development_dependency "simplecov"
+  s.add_development_dependency "simplecov-rcov"
+  s.add_development_dependency "terminal-notifier-guard"
 end
