@@ -103,6 +103,14 @@ RSpec.describe CrushinatorHelpers::ViewHelpers, type: :helper do
       end
     end
 
+    it 'should return nil when given nil' do
+      expect( helper.crushinate nil ).to eq nil
+    end
+
+    it 'should return empty string when given empty string' do
+      expect( helper.crushinate '' ).to eq ''
+    end
+
     it "should append options as a query string" do
       expect(helper.crushinate \
         "http://images.ted.com#{path}", { foo: 1, bar: 2 }
