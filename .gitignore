@@ -1,4 +1,3 @@
-.bundle/
 .rubocop-http*
 Gemfile.lock
 log/*.log

@@ -16,7 +16,15 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
+  if s.respond_to?(:metadata)
+    s.metadata['allowed_push_host'] = 'https://rubygems.ted.com/private'
+  else
+    raise 'RubyGems 2.0 or newer is required to protect against ' \
+      'public gem pushes.'
+  end
+
   s.add_dependency 'rails', '>= 4.0'
+  s.add_development_dependency 'bundler', '>=1.15.0'
 
   s.add_development_dependency "rspec"
   s.add_development_dependency "rspec-rails"
